@@ -30,10 +30,10 @@
   color: var(--color-text-light);
 }
 
-.menu {
+.nav {
 }
 
-.main_menus {
+.nav_menu {
   display: flex;
   gap: 2rem;
   font-size: 3.8rem;
@@ -41,34 +41,34 @@
   margin-top: 3.8rem;
 }
 
-.main_menus {
+.nav_menu {
   height: 40px;
 }
-.main_menus > li > a {
+.nav_menu > li > a {
   display: inline-block;
   padding-bottom: 0.3rem;
 }
 
-.sub_menus {
+.nav_categories {
   display: flex;
   align-items: center;
   margin-top: 2rem;
   font-size: 1.4rem;
 }
-.sub_menu {
+.nav_category {
   display: flex;
   gap: 2rem;
   font-weight: 600;
 }
 
-.sub_menu,
+.nav_category,
 .span,
-.etc_menu {
+.nav_categry_etc {
   height: 20px;
 }
 
-.sub_menu > li > a,
-.etc_menu > li > a {
+.nav_category > li > a,
+.nav_categry_etc > li > a {
   display: inline-block;
   padding-bottom: 0.8rem;
 }
@@ -77,25 +77,33 @@
   font-weight: 300;
   color: var(--color-gray-light);
 }
-.etc_menu {
+.nav_categry_etc {
   display: flex;
   gap: 2rem;
   font-weight: 300;
   font-style: italic;
 }
 
-.main_menus > li,
-.sub_menu > li,
-.etc_menu > li {
+.nav_menu > li,
+.nav_category > li,
+.nav_categry_etc > li {
   cursor: pointer;
 }
-.main_menus > li > a:hover {
+
+.nav_menu > li > a:hover {
   border-bottom: 0.6rem solid var(--color-text);
 }
-.sub_menu > li > a:hover,
-.etc_menu > li > a:hover {
+.nav_category > li > a:hover,
+.nav_categry_etc > li > a:hover {
   border-bottom: 0.4rem solid var(--color-text);
 }
+.selectedMenu {
+  border-bottom: 0.6rem solid var(--color-text);
+}
+.selectedCategory {
+  border-bottom: 0.4rem solid var(--color-text);
+}
+
 .search {
   position: absolute;
   right: 0;

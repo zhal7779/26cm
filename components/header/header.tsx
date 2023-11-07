@@ -5,7 +5,7 @@ import { BsFillSuitHeartFill, BsFillDoorClosedFill } from 'react-icons/bs';
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import Image from 'next/image';
-
+import { useState } from 'react';
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
   const categories = [
@@ -20,6 +20,12 @@ export default function Header() {
     'FOOD',
   ];
   const etcMenu = ['Event', 'Lookbook'];
+
+  const [selectedMenu, setSelectedMenu] = useState<string>('');
+
+  const clickSelectedMenu = (menu: string) => {
+    setSelectedMenu(menu);
+  };
 
   return (
     <header>
@@ -49,29 +55,51 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div className={styles.menu}>
+        <div className={styles.nav}>
           <nav>
-            <ul className={styles.main_menus}>
+            <ul className={styles.nav_menu}>
               {menus.map((menu) => (
                 <li key={menu}>
-                  <Link href={`/menu/${menu}`}>{menu}</Link>
+                  <Link
+                    href={`/menu/${menu}`}
+                    onClick={() => clickSelectedMenu(menu)}
+                    className={selectedMenu === menu ? styles.selectedMenu : ''}
+                  >
+                    {menu}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
-          <div className={styles.sub_menus}>
-            <ul className={styles.sub_menu}>
+          <div className={styles.nav_categories}>
+            <ul className={styles.nav_category}>
               {categories.map((category) => (
                 <li key={category}>
-                  <a href={`/category/${category}`}>{category}</a>
+                  <Link
+                    href={`/category/${category}`}
+                    onClick={() => clickSelectedMenu(category)}
+                    className={
+                      selectedMenu === category ? styles.selectedCategory : ''
+                    }
+                  >
+                    {category}
+                  </Link>
                 </li>
               ))}
             </ul>
             <span className={styles.span}>|</span>
-            <ul className={styles.etc_menu}>
-              {etcMenu.map((menu) => (
-                <li key={menu}>
-                  <a href="#">{menu}</a>
+            <ul className={styles.nav_categry_etc}>
+              {etcMenu.map((etc) => (
+                <li key={etc}>
+                  <Link
+                    href={`/category/${etc}`}
+                    onClick={() => clickSelectedMenu(etc)}
+                    className={
+                      selectedMenu === etc ? styles.selectedCategory : ''
+                    }
+                  >
+                    {etc}
+                  </Link>
                 </li>
               ))}
             </ul>
