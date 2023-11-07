@@ -38,20 +38,28 @@ export default function Header() {
           </div>
           <ul className={styles.user}>
             <li>
-              <HiUser />
-              <p>MY PAGE</p>
+              <Link href="/">
+                <HiUser />
+                <p>MY PAGE</p>
+              </Link>
             </li>
             <li>
-              <BsFillSuitHeartFill />
-              <p>MY LIKE</p>
+              <Link href="/">
+                <BsFillSuitHeartFill />
+                <p>MY LIKE</p>
+              </Link>
             </li>
             <li>
-              <GiShoppingBag />
-              <p>SHOPPING BAG</p>
+              <Link href="/">
+                <GiShoppingBag />
+                <p>SHOPPING BAG</p>
+              </Link>
             </li>
             <li>
-              <BsFillDoorClosedFill />
-              <p>LOGIN</p>
+              <Link href="/login">
+                <BsFillDoorClosedFill />
+                <p>LOGIN</p>
+              </Link>
             </li>
           </ul>
         </div>
