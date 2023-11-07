@@ -7,11 +7,9 @@
   display: flex;
   justify-content: space-between;
 }
-
 .logo {
-  font-size: 3.2rem;
+  cursor: pointer;
 }
-
 .user {
   display: flex;
   gap: 1.5rem;

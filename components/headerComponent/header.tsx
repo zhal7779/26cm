@@ -3,6 +3,7 @@ import { HiUser } from 'react-icons/hi';
 import { BsFillSuitHeartFill, BsFillDoorClosedFill } from 'react-icons/bs';
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
+import Image from 'next/image';
 
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
@@ -22,7 +23,9 @@ export default function Header() {
     <header>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.logo}>26CM</h1>
+          <div className={styles.logo}>
+            <Image src="/logo.png" alt="logo" width={100} height={30} />
+          </div>
           <ul className={styles.user}>
             <li>
               <HiUser />

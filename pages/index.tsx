@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <p>26CM</p>;
+  return <p>메인페이지 입니다</p>;
 }
