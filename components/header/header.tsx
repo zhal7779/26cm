@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './header.module.css';
 import { HiUser } from 'react-icons/hi';
 import { BsFillSuitHeartFill, BsFillDoorClosedFill } from 'react-icons/bs';
@@ -7,7 +8,8 @@ import Image from 'next/image';
 
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
-  const subMenus = [
+  const categories = [
+    'BEST',
     'WOMEN',
     'MEN',
     'ACC',
@@ -17,14 +19,16 @@ export default function Header() {
     'CULTURE',
     'FOOD',
   ];
-  const etcMenu = ['Best', 'Event'];
+  const etcMenu = ['Event', 'Lookbook'];
 
   return (
     <header>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.logo}>
-            <Image src="/logo.png" alt="logo" width={100} height={30} />
+            <Link href="/">
+              <Image src="/logo.png" alt="logo" width={100} height={30} />
+            </Link>
           </div>
           <ul className={styles.user}>
             <li>
@@ -50,16 +54,16 @@ export default function Header() {
             <ul className={styles.main_menus}>
               {menus.map((menu) => (
                 <li key={menu}>
-                  <a href="#">{menu}</a>
+                  <Link href={menu}>{menu}</Link>
                 </li>
               ))}
             </ul>
           </nav>
           <div className={styles.sub_menus}>
             <ul className={styles.sub_menu}>
-              {subMenus.map((menu) => (
-                <li key={menu}>
-                  <a href="#">{menu}</a>
+              {categories.map((category) => (
+                <li key={category}>
+                  <a href={`/category/${category}`}>{category}</a>
                 </li>
               ))}
             </ul>
