@@ -5,11 +5,15 @@
 :root {
   --color-accent: var(--color-orange);
   --color-text: var(--color-black);
+  --color-text-light: var(--color-font-gray);
 
   --color-black: #000000;
+  --color-black-light: #303030;
   --color-white: #ffffff;
   --color-orange: #ff4800;
   --color-border-gray: #d4d4d4;
+  --color-font-gray: #5d5d5d;
+  --color-gray-light: #a0a0a0;
 }
 
 html,
@@ -17,9 +21,12 @@ body,
 p {
   padding: 0;
   margin: 0;
+  font-size: 62.5%;
   font-family: campton, 'Apple SD Gothic Neo', NanumBarunGothic, 나눔바른고딕,
     'Malgun Gothic', '맑은 고딕', dotum, sans-serif;
   background-color: var(--color-white);
+  color: var(--color-text);
+
   line-height: 1;
 }
 

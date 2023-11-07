@@ -1,0 +1,107 @@
+.container {
+  margin: 4.8rem 4.6rem 3rem 4.6rem;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 3.2rem;
+}
+
+.user {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.user > li {
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  color: var(--color-black-light);
+  gap: 0.2rem;
+  cursor: pointer;
+}
+
+.user > li > p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.menu {
+}
+
+.main_menus {
+  display: flex;
+  gap: 2rem;
+  font-size: 3.8rem;
+  font-weight: 600;
+  margin-top: 3.8rem;
+}
+
+.main_menus {
+  height: 40px;
+}
+.main_menus > li > a {
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.sub_menus {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+}
+.sub_menu {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+}
+
+.sub_menu,
+.span,
+.etc_menu {
+  height: 20px;
+}
+
+.sub_menu > li > a,
+.etc_menu > li > a {
+  display: inline-block;
+  padding-bottom: 0.8rem;
+}
+.span {
+  margin: 0 2rem;
+  font-weight: 300;
+  color: var(--color-gray-light);
+}
+.etc_menu {
+  display: flex;
+  gap: 2rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.main_menus > li,
+.sub_menu > li,
+.etc_menu > li {
+  cursor: pointer;
+}
+.main_menus > li > a:hover {
+  border-bottom: 0.6rem solid var(--color-text);
+}
+.sub_menu > li > a:hover,
+.etc_menu > li > a:hover {
+  border-bottom: 0.4rem solid var(--color-text);
+}
+.search {
+  position: absolute;
+  right: 0;
+  bottom: 3.7rem;
+  font-size: 4.7rem;
+  cursor: pointer;
+}
