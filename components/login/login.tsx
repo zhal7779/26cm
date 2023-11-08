@@ -1,3 +1,4 @@
+import { googleLogin } from '../../app/api/firebase';
 import styles from './login.module.css';
 export default function Login() {
   return (
@@ -7,7 +8,7 @@ export default function Login() {
       <div className={styles.content}>
         <input type="text" placeholder="아이디 (이메일)" />
         <input type="password" placeholder="비밀번호" />
-        <button>로그인하기</button>
+        <button onClick={() => googleLogin()}>로그인하기</button>
       </div>
       <div className={styles.content_SNS}>
         <strong>SNS 계정으로 로그인하기</strong>
