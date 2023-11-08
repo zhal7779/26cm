@@ -25,7 +25,7 @@ export async function googleLogin() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       const user = result.user;
-      return user;
+      return token;
     })
     .catch((error) => {
       console.log(error);

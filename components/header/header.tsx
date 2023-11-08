@@ -1,11 +1,18 @@
 import Link from 'next/link';
 import styles from './header.module.css';
+import { googleUserState } from '../../recoil/atoms/googleUserState';
+import { useRecoilValue } from 'recoil';
+import { useState, useEffect } from 'react';
 import { HiUser } from 'react-icons/hi';
-import { BsFillSuitHeartFill, BsFillDoorClosedFill } from 'react-icons/bs';
+import {
+  BsFillSuitHeartFill,
+  BsFillDoorClosedFill,
+  BsDoorOpenFill,
+} from 'react-icons/bs';
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
   const categories = [
@@ -21,6 +28,7 @@ export default function Header() {
   ];
   const etcMenu = ['Event', 'Lookbook'];
 
+  const googleUser = useRecoilValue(googleUserState);
   const [selectedMenu, setSelectedMenu] = useState<string>('');
   const [scrollPosition, setScrollPosition] = useState<number>(0);
 
@@ -72,10 +80,17 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/login">
-                <BsFillDoorClosedFill />
-                {scrollPosition < 100 ? <p>LOGIN</p> : ''}
-              </Link>
+              {googleUser.length <= 0 ? (
+                <Link href="/login">
+                  <BsFillDoorClosedFill />
+                  {scrollPosition < 100 ? <p>LOGIN</p> : ''}
+                </Link>
+              ) : (
+                <Link href="/">
+                  <BsDoorOpenFill />
+                  {scrollPosition < 100 ? <p>LOGOUT</p> : ''}
+                </Link>
+              )}
             </li>
           </ul>
         </div>
