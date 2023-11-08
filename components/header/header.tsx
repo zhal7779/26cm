@@ -5,7 +5,7 @@ import { BsFillSuitHeartFill, BsFillDoorClosedFill } from 'react-icons/bs';
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
   const categories = [
@@ -22,16 +22,32 @@ export default function Header() {
   const etcMenu = ['Event', 'Lookbook'];
 
   const [selectedMenu, setSelectedMenu] = useState<string>('');
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   const clickSelectedMenu = (menu: string) => {
     setSelectedMenu(menu);
   };
 
+  //스크롤 감지 로직
+  const updateScroll = () => {
+    setScrollPosition(Math.floor(window.scrollY));
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', updateScroll);
+  });
+
   return (
-    <header>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.logo}>
+    <header className={styles.header}>
+      <div
+        className={
+          scrollPosition < 100 ? styles.container : styles.change_container
+        }
+      >
+        <div className={styles.content}>
+          <div
+            className={scrollPosition < 100 ? styles.logo : styles.change_logo}
+          >
             <Link href="/">
               <Image src="/logo.png" alt="logo" width={100} height={30} />
             </Link>
@@ -40,32 +56,36 @@ export default function Header() {
             <li>
               <Link href="/">
                 <HiUser />
-                <p>MY PAGE</p>
+                {scrollPosition < 100 ? <p>MY PAGE</p> : ''}
               </Link>
             </li>
             <li>
               <Link href="/">
                 <BsFillSuitHeartFill />
-                <p>MY LIKE</p>
+                {scrollPosition < 100 ? <p>MY LIKE</p> : ''}
               </Link>
             </li>
             <li>
               <Link href="/">
                 <GiShoppingBag />
-                <p>SHOPPING BAG</p>
+                {scrollPosition < 100 ? <p>SHOPPING BAG</p> : ''}
               </Link>
             </li>
             <li>
               <Link href="/login">
                 <BsFillDoorClosedFill />
-                <p>LOGIN</p>
+                {scrollPosition < 100 ? <p>LOGIN</p> : ''}
               </Link>
             </li>
           </ul>
         </div>
-        <div className={styles.nav}>
+        <div className={scrollPosition < 100 ? styles.nav : styles.change_nav}>
           <nav>
-            <ul className={styles.nav_menu}>
+            <ul
+              className={
+                scrollPosition < 100 ? styles.nav_menu : styles.change_nav_menu
+              }
+            >
               {menus.map((menu) => (
                 <li key={menu}>
                   <Link
@@ -79,7 +99,14 @@ export default function Header() {
               ))}
             </ul>
           </nav>
-          <div className={styles.nav_categories}>
+
+          <div
+            className={
+              scrollPosition < 100
+                ? styles.nav_categories
+                : styles.change_nav_categories
+            }
+          >
             <ul className={styles.nav_category}>
               {categories.map((category) => (
                 <li key={category}>
@@ -113,7 +140,11 @@ export default function Header() {
             </ul>
           </div>
         </div>
-        <div className={styles.search}>
+        <div
+          className={
+            scrollPosition < 100 ? styles.search : styles.change_search
+          }
+        >
           <PiMagnifyingGlassBold />
         </div>
       </div>
