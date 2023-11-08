@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -14,13 +19,13 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
-export function googleLogin() {
-  signInWithPopup(auth, provider)
+export async function googleLogin() {
+  return signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       const user = result.user;
-      console.log(user);
+      return user;
     })
     .catch((error) => {
       console.log(error);
@@ -30,4 +35,9 @@ export function googleLogin() {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+}
+
+// 구글 로그아웃 로직
+export async function googleLogout() {
+  return signOut(auth).then(() => null);
 }
