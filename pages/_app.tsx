@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <Header />
-      <main>
+      <main className="pt-[40px] pb-[90px] px-[50px]">
         <Component {...pageProps} />
       </main>
 

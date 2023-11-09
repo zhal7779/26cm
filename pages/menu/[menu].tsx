@@ -4,5 +4,5 @@ export default function Detail() {
   const router = useRouter();
   const menu = router.query.menu;
 
-  return <div>{menu}</div>;
+  return <h1>{menu}</h1>;
 }

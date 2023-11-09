@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './header.module.css';
 import { googleUserState } from '../../recoil/atoms/googleUserState';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
 import { HiUser } from 'react-icons/hi';
 import {
@@ -12,6 +12,7 @@ import {
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import Image from 'next/image';
+import { googleLogout } from '../../app/api/firebase';
 
 export default function Header() {
   const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
@@ -28,9 +29,13 @@ export default function Header() {
   ];
   const etcMenu = ['Event', 'Lookbook'];
 
-  const googleUser = useRecoilValue(googleUserState);
+  const [googleUser, setGoogleUSer] = useRecoilState(googleUserState);
   const [selectedMenu, setSelectedMenu] = useState<string>('');
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+  const handleLogout = () => {
+    googleLogout().then((result) => setGoogleUSer(result));
+  };
 
   const clickSelectedMenu = (menu: string) => {
     setSelectedMenu(menu);
@@ -80,13 +85,13 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              {googleUser.length <= 0 ? (
+              {googleUser === null ? (
                 <Link href="/login">
                   <BsFillDoorClosedFill />
                   {scrollPosition < 100 ? <p>LOGIN</p> : ''}
                 </Link>
               ) : (
-                <Link href="/">
+                <Link href="/" onClick={handleLogout}>
                   <BsDoorOpenFill />
                   {scrollPosition < 100 ? <p>LOGOUT</p> : ''}
                 </Link>
