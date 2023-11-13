@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './header.module.css';
+import { menus, categories, etcCategories } from './data/headerData';
 import { googleUserState } from '../../recoil/atoms/googleUserState';
 import { useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
@@ -15,20 +16,6 @@ import Image from 'next/image';
 import { googleLogout } from '../../app/api/firebase';
 
 export default function Header() {
-  const menus = ['Special-Order', 'Showcase', 'PT', 'Welove'];
-  const categories = [
-    'BEST',
-    'WOMEN',
-    'MEN',
-    'ACC',
-    'BEAUTY',
-    'INTERIOR',
-    'DIGITAL',
-    'CULTURE',
-    'FOOD',
-  ];
-  const etcMenu = ['Event', 'Lookbook'];
-
   const [googleUser, setGoogleUSer] = useRecoilState(googleUserState);
   const [selectedMenu, setSelectedMenu] = useState<string>('');
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -144,7 +131,7 @@ export default function Header() {
             </ul>
             <span className={styles.span}>|</span>
             <ul className={styles.nav_categry_etc}>
-              {etcMenu.map((etc) => (
+              {etcCategories.map((etc) => (
                 <li key={etc}>
                   <Link
                     href={`/category/${etc}`}
