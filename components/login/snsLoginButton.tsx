@@ -1,12 +1,19 @@
 import Image from 'next/image';
 import { googleLogin } from '../../app/api/firebase';
 import { googleUserState } from '../../recoil/atoms/googleUserState';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { useRouter } from 'next/router';
 type Props = {
   SNS: string;
 };
 export default function SNSLoginButton({ SNS }: Props) {
-  const setGoogleUser = useSetRecoilState(googleUserState);
+  const [googleUser, setGoogleUser] = useRecoilState(googleUserState);
+  const router = useRouter();
+
+  if (googleUser) {
+    router.push('/');
+  }
+
   const handleLogin = () => {
     googleLogin().then((result) => setGoogleUser(result));
   };

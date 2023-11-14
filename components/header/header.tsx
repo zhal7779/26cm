@@ -13,17 +13,25 @@ import {
 import { GiShoppingBag } from 'react-icons/gi';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import Image from 'next/image';
-import { googleLogout } from '../../app/api/firebase';
+import { googleLogout, onUserStateChange } from '../../app/api/firebase';
 import SearchModal from '../search/searchModal';
 
 export default function Header() {
-  const [googleUser, setGoogleUSer] = useRecoilState(googleUserState);
+  const [googleUser, setGoogleUser] = useRecoilState(googleUserState);
   const [selectedMenu, setSelectedMenu] = useState<string>('');
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [onModal, setOnModal] = useState<boolean>(false);
+
   const handleLogout = () => {
-    googleLogout().then((result) => setGoogleUSer(result));
+    googleLogout().then((result) => setGoogleUser(result));
   };
+
+  // useEffect(() => {
+  //   onUserStateChange((user) => {
+  //     console.log(user);
+  //     setGoogleUser({ ...user });
+  //   });
+  // }, []);
 
   const clickSelectedMenu = (menu: string) => {
     setSelectedMenu(menu);

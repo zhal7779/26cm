@@ -1,7 +1,11 @@
-import { googleLogin } from '../../app/api/firebase';
 import styles from './login.module.css';
 import SNSLoginButton from './snsLoginButton';
+import { useRouter } from 'next/router';
 export default function Login() {
+  const router = useRouter();
+  const handleClickJoin = () => {
+    router.push('/join');
+  };
   return (
     <div className={styles.container}>
       <strong className={styles.title}>로그인</strong>
@@ -19,7 +23,9 @@ export default function Login() {
         <p>회원가입하고</p> <strong>최대 15% 할인 쿠폰을</strong>
         <p>받으세요!</p>
       </div>
-      <button className={styles.join_button}>간편 회원가입하기</button>
+      <button className={styles.join_button} onClick={handleClickJoin}>
+        간편 회원가입하기
+      </button>
     </div>
   );
 }
