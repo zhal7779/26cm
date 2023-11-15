@@ -30,7 +30,6 @@
 .content_input {
   margin-bottom: 4rem;
 }
-
 .input {
   border: 1px solid var(--color-border-gray);
   border-radius: 2px;
@@ -57,6 +56,26 @@
   font-size: 1.2rem;
   color: var(--color-accent);
   line-height: 2rem;
+}
+
+.test_text {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: var(--color-gray-400);
+}
+.test_text > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 2.3rem;
+}
+
+.pass_text {
+  color: var(--color-blue);
 }
 
 .button,

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styles from './join.module.css';
 import IdInput from './idInput';
+import PwInput from './pwInput';
 
 const Join = () => {
-  const emailRegEx = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-  const [emailCheck, setEmailCheck] = useState<boolean>(false);
+  const [menu, setMenu] = useState<string>('id');
 
-  const handleEmailCheck = (email: string) => {
-    setEmailCheck(emailRegEx.test(email));
+  const changeMenu = (menu: string) => {
+    setMenu(menu);
   };
 
   return (
@@ -15,21 +15,26 @@ const Join = () => {
       <h2 className={styles.title}>간편가입</h2>
       <div className={styles.content}>
         <h3 className={styles.content_title}>
-          로그인에 사용할
-          <br />
-          아이디를 입력해주세요.
+          {menu === 'id' ? (
+            <span>
+              로그인에 사용할
+              <br />
+              아이디를 입력해주세요.
+            </span>
+          ) : (
+            <span>
+              로그인에 사용할
+              <br />
+              비밀번호를 입력해주세요.
+            </span>
+          )}
         </h3>
-        <div className={styles.content_input}>
-          <IdInput
-            emailCheck={emailCheck}
-            handleEmailCheck={handleEmailCheck}
-          />
-        </div>
+        {menu === 'id' ? (
+          <IdInput changeMenu={changeMenu} />
+        ) : (
+          <PwInput changeMenu={changeMenu} />
+        )}
       </div>
-
-      <button className={emailCheck ? styles.pass_button : styles.button}>
-        다음
-      </button>
     </div>
   );
 };

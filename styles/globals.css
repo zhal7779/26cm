@@ -6,11 +6,11 @@
   --color-accent: var(--color-orange);
   --color-text: var(--color-black);
   --color-text-light: var(--color-font-gray);
-
   --color-black: #000000;
   --color-black-light: #303030;
   --color-white: #ffffff;
   --color-orange: #ff4800;
+  --color-blue: #375fff;
   --color-border-gray: #d4d4d4;
   --color-font-gray: #5d5d5d;
   --color-gray-light: #a0a0a0;
