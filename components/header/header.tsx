@@ -70,7 +70,7 @@ export default function Header() {
             </div>
             <ul className={styles.user}>
               <li>
-                <Link href={googleUser ? '/' : '/login'}>
+                <Link href={googleUser ? '/mypage' : '/login'}>
                   <HiUser />
                   {scrollPosition < 100 ? <p>MY PAGE</p> : ''}
                 </Link>
@@ -82,7 +82,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href={googleUser ? '/' : '/login'}>
+                <Link href={googleUser ? '/cart' : '/login'}>
                   <GiShoppingBag />
                   {scrollPosition < 100 ? <p>SHOPPING BAG</p> : ''}
                 </Link>

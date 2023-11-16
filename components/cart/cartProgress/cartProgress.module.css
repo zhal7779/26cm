@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 7rem 0px 7.8rem;
+}
+
+.content {
+  display: flex;
+}
+
+.content > li {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  color: #e4e4e4;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.active_progress {
+  color: #000000;
+}
+
+.icon {
+  font-size: 2rem;
+  margin: 0px 1.5rem;
+}
