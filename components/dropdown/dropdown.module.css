@@ -1,0 +1,28 @@
+.container {
+  width: 13.4rem;
+  font-size: 1.3rem;
+  color: #686868;
+  z-index: 1;
+}
+
+.selected_menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 1rem;
+  border: 1px solid var(--color-border-gray);
+}
+
+.content {
+  padding: 0.5rem 0;
+  border: 1px solid var(--color-border-gray);
+  border-top: none;
+  background-color: var(--color-white);
+}
+
+.content > li {
+  padding: 1.2rem 1rem;
+}
+
+.content > li:hover {
+  background-color: #e4e4e4;
+}

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import SubCategoty from '../../components/subCategory/subCategory';
+import Dropdown from '../../components/dropdown/dropdown';
 
 export default function CategoryPage() {
   const router = useRouter();
@@ -8,7 +9,10 @@ export default function CategoryPage() {
   return (
     <div className="flex">
       <SubCategoty category={category} />
-      {category} 카테고리 페이지
+      <div className="w-full flex justify-between">
+        {category} 카테고리 페이지
+        <Dropdown />
+      </div>
     </div>
   );
 }
