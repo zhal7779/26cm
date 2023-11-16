@@ -70,19 +70,19 @@ export default function Header() {
             </div>
             <ul className={styles.user}>
               <li>
-                <Link href="/">
+                <Link href={googleUser ? '/' : '/login'}>
                   <HiUser />
                   {scrollPosition < 100 ? <p>MY PAGE</p> : ''}
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href={googleUser ? '/' : '/login'}>
                   <BsFillSuitHeartFill />
                   {scrollPosition < 100 ? <p>MY LIKE</p> : ''}
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href={googleUser ? '/' : '/login'}>
                   <GiShoppingBag />
                   {scrollPosition < 100 ? <p>SHOPPING BAG</p> : ''}
                 </Link>
@@ -156,7 +156,7 @@ export default function Header() {
                 {etcCategories.map((etc) => (
                   <li key={etc}>
                     <Link
-                      href={`/category/${etc}`}
+                      href={`/${etc.toLocaleLowerCase()}`}
                       onClick={() => clickSelectedMenu(etc)}
                       className={
                         selectedMenu === etc ? styles.selectedCategory : ''
