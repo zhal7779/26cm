@@ -36,17 +36,6 @@
   outline: none;
   color: #1a1a1a;
 }
-
-.content > button {
-  margin-top: 2rem;
-  height: 5.6rem;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  border-radius: 2px;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
 .content_SNS {
   width: 100%;
   display: flex;

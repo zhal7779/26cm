@@ -43,11 +43,10 @@ const PwInput = ({ changeMenu }: Props) => {
   const pwCheckResult = Object.values(pwCheck).every(
     (element) => element === true
   );
-  console.log(pwCheckResult);
 
   return (
     <>
-      <div className={styles.content_input}>
+      <div>
         <input
           type="password"
           className={styles.input}
@@ -79,7 +78,11 @@ const PwInput = ({ changeMenu }: Props) => {
           </span>
         </p>
       </div>
-      <JoinButton check={pwCheckResult} changeMenu={changeMenu} />
+      <JoinButton
+        check={pwCheckResult}
+        changeMenu={changeMenu}
+        menu={'complete'}
+      />
     </>
   );
 };

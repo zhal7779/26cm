@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from './join.module.css';
+import { useRouter } from 'next/router';
 
 type Props = {
   check: boolean;
   changeMenu: (menu: string) => void;
+  menu: string;
 };
-const JoinButton = ({ check, changeMenu }: Props) => {
+const JoinButton = ({ check, changeMenu, menu }: Props) => {
+  const router = useRouter();
   const handleClickNext = () => {
-    if (check) changeMenu('password');
+    if (check) changeMenu(menu);
+
+    if (menu === 'complete' && check) router.push('/join/complete');
   };
 
   return (

@@ -30,7 +30,11 @@ const IdInput = ({ changeMenu }: Props) => {
           <p className={styles.error_text}>이메일 형식이 올바르지 않습니다.</p>
         )}
       </div>
-      <JoinButton check={emailCheck} changeMenu={changeMenu} />
+      <JoinButton
+        check={emailCheck}
+        changeMenu={changeMenu}
+        menu={'password'}
+      />
     </>
   );
 };

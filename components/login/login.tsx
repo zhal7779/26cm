@@ -1,3 +1,4 @@
+import Button from '../button';
 import styles from './login.module.css';
 import SNSLoginButton from './snsLoginButton';
 import { useRouter } from 'next/router';
@@ -13,8 +14,8 @@ export default function Login() {
       <div className={styles.content}>
         <input type="text" placeholder="아이디 (이메일)" />
         <input type="password" placeholder="비밀번호" />
-        <button>로그인하기</button>
       </div>
+      <Button text={'로그인하기'} link={'/'} />
       <div className={styles.content_SNS}>
         <strong>SNS 계정으로 로그인하기</strong>
         <SNSLoginButton SNS="구글" />
