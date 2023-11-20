@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import SubCategoty from '../../components/subCategory/subCategory';
 import Dropdown from '../../components/dropdown/dropdown';
+import type { NextPageWithLayout } from '../_app';
+import { getAppLayout } from '../../util/getLayout';
 
-export default function CategoryPage() {
+const CategoryPage: NextPageWithLayout = () => {
   const router = useRouter();
   const category = router.query.category;
 
@@ -15,4 +17,8 @@ export default function CategoryPage() {
       </div>
     </div>
   );
-}
+};
+
+CategoryPage.getLayout = getAppLayout;
+
+export default CategoryPage;

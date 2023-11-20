@@ -76,7 +76,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href={googleUser ? '/' : '/login'}>
+                <Link href={googleUser ? '/mypage/heart' : '/login'}>
                   <BsFillSuitHeartFill />
                   {scrollPosition < 100 ? <p>MY LIKE</p> : ''}
                 </Link>

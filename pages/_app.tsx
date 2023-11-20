@@ -1,20 +1,19 @@
 import '../styles/globals.css';
 import { RecoilRoot } from 'recoil';
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <RecoilRoot>
-      <Header />
-      <main className="pt-[40px] pb-[90px] px-[50px]">
-        <Component {...pageProps} />
-      </main>
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
-      <Footer />
-    </RecoilRoot>
-  );
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return <RecoilRoot>{getLayout(<Component {...pageProps} />)}</RecoilRoot>;
 }
-
-export default MyApp;

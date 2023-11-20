@@ -1,4 +1,4 @@
-import Button from '../button';
+import Button from '../common/button';
 import styles from './login.module.css';
 import SNSLoginButton from './snsLoginButton';
 import { useRouter } from 'next/router';

@@ -1,6 +1,8 @@
-import Button from '../../../components/button';
+import Button from '../../../components/common/button';
+import { getAppLayout } from '../../../util/getLayout';
+import type { NextPageWithLayout } from '../../_app';
 
-export default function JoinCompletePage() {
+const JoinCompletePage: NextPageWithLayout = () => {
   return (
     <div className="w-[40rem] mx-auto flex flex-col items-center">
       <div className="w-full text-[4rem] text-center pb-10 border-b-4 border-[#000000]">
@@ -12,4 +14,7 @@ export default function JoinCompletePage() {
       </div>
     </div>
   );
-}
+};
+
+JoinCompletePage.getLayout = getAppLayout;
+export default JoinCompletePage;
