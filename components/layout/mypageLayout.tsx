@@ -3,10 +3,13 @@ import MypageCategory from '../mypage/mypageCategory';
 
 const MypageLayout = (props: { children: ReactNode }) => {
   return (
-    <>
-      <MypageCategory />
+    <div className="flex">
+      <div className="mr-[5rem]">
+        <MypageCategory />
+      </div>
+
       {props.children}
-    </>
+    </div>
   );
 };
 
