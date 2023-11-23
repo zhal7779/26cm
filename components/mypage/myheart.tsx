@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Myheart = () => {
+const MyHeart = () => {
   return (
     <>
       <h3 className="text-[2.6rem] pb-[1rem] font-semibold border-b-4 border-[#000000]">
@@ -20,4 +20,4 @@ const Myheart = () => {
   );
 };
 
-export default Myheart;
+export default MyHeart;
